@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galerie Photo Leila</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" async></script>
 </head>
 
 <body>
@@ -18,10 +19,9 @@
     <div class="modal" id="modal">
         <span class="close" id="close">&times;</span>
         <span class="arrow arrow-left" id="prev">&#10094;</span>
-        <img id="modal-image" src="" alt="Image Agrandie">
-        <span class="arrow arrow-right" id="next">&#10095;</span>
+        <img id="modal-image" src="" alt="Image Agrandie" loading="lazy">
+        <span class=" arrow arrow-right" id="next">&#10095;</span>
     </div>
-
     <script>
         const images = [
             "img/image1.webP", "img/image2.webP", "img/image3.webP", "img/image4.webP", "img/image5.webP",
@@ -35,15 +35,16 @@
 
         let currentImageIndex = 0; // Index de l'image actuelle dans la galerie
 
-        // Fonction pour ajouter les images à la galerie
+        // Fonction pour ajouter les images à la galerie avec lazy loading
         const gallery = document.getElementById('gallery');
         images.forEach((imageSrc, index) => {
             const div = document.createElement('div');
             div.classList.add('gallery-item');
 
             const img = document.createElement('img');
-            img.src = imageSrc;
+            img.dataset.src = imageSrc;  // Stocke l'URL dans data-src (évite de charger immédiatement)
             img.alt = "Image de la galerie";
+            img.loading = "lazy"; // Active le lazy loading natif
 
             // Ajouter un événement pour ouvrir l'image dans la modale
             img.addEventListener('click', () => {
@@ -56,6 +57,21 @@
             gallery.appendChild(div);
         });
 
+        // Utilisation de l'IntersectionObserver pour charger les images visibles
+        const lazyImages = document.querySelectorAll("img[data-src]");
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    let img = entry.target;
+                    img.src = img.dataset.src; // Remplace data-src par src
+                    img.removeAttribute("data-src"); // Supprime l'attribut inutile
+                    observer.unobserve(img); // Arrête d'observer cette image
+                }
+            });
+        }, { rootMargin: "100px" });
+
+        lazyImages.forEach(img => observer.observe(img));
+
         // Fermer la modale lorsqu'on clique sur le bouton de fermeture
         document.getElementById('close').addEventListener('click', () => {
             document.getElementById('modal').style.display = 'none';
@@ -63,21 +79,13 @@
 
         // Fonction pour changer l'image à gauche
         document.getElementById('prev').addEventListener('click', () => {
-            if (currentImageIndex > 0) {
-                currentImageIndex--;
-            } else {
-                currentImageIndex = images.length - 1; // Revenir à la dernière image
-            }
+            currentImageIndex = (currentImageIndex > 0) ? currentImageIndex - 1 : images.length - 1;
             document.getElementById('modal-image').src = images[currentImageIndex];
         });
 
         // Fonction pour changer l'image à droite
         document.getElementById('next').addEventListener('click', () => {
-            if (currentImageIndex < images.length - 1) {
-                currentImageIndex++;
-            } else {
-                currentImageIndex = 0; // Revenir à la première image
-            }
+            currentImageIndex = (currentImageIndex < images.length - 1) ? currentImageIndex + 1 : 0;
             document.getElementById('modal-image').src = images[currentImageIndex];
         });
 
@@ -85,11 +93,7 @@
         const scrollTopBtn = document.querySelector(".scroll-top");
 
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.add("show");
-            } else {
-                scrollTopBtn.classList.remove("show");
-            }
+            scrollTopBtn.classList.toggle("show", window.scrollY > 300);
         });
 
         scrollTopBtn.addEventListener("click", () => {
