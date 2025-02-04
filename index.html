@@ -9,172 +9,92 @@
 </head>
 
 <body>
-    <div class="gallery">
-        <div class="gallery-item">
-            <img src="img/image1.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image2.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image3.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image4.png" alt="Textured Wall">
-        </div>
+    <div class="gallery" id="gallery"></div>
 
-        <div class="gallery-item">
-            <img src="img/image5.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image9.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image7.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image8.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image10.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image11.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image12.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image13.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image14.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image15.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image16.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image17.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image18.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image19.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image20.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image21.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image22.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image23.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image24.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image25.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image26.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image27.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image28.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image29.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image30.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image31.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image32.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image33.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image34.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image35.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image36.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image37.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image38.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image39.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image40.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image41.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image42.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image43.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image44.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image45.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image46.png" alt="Architectural Swimming Pool">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image47.png" alt="Modern Architecture">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image48.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image49.png" alt="Textured Wall">
-        </div>
-
-        <div class="gallery-item">
-            <img src="img/image50.png" alt="Sunlit Ceiling">
-        </div>
-        <div class="gallery-item">
-            <img src="img/image51.png" alt="Textured Wall">
-        </div>
-
-    </div>
     <button class="scroll-top">↑</button>
+
+    <!-- Modale pour afficher l'image agrandie -->
+    <div class="modal" id="modal">
+        <span class="close" id="close">&times;</span>
+        <span class="arrow arrow-left" id="prev">&#10094;</span>
+        <img id="modal-image" src="" alt="Image Agrandie">
+        <span class="arrow arrow-right" id="next">&#10095;</span>
+    </div>
+
+    <script>
+        const images = [
+            "img/image1.png", "img/image2.png", "img/image3.png", "img/image4.png", "img/image5.png",
+            "img/image6.png", "img/image7.png", "img/image8.png", "img/image9.png", "img/image10.png",
+            "img/image11.png", "img/image12.png", "img/image13.png", "img/image14.png", "img/image15.png",
+            "img/image16.png", "img/image17.png", "img/image18.png", "img/image19.png", "img/image20.png",
+            "img/image21.png", "img/image22.png", "img/image23.png", "img/image24.png", "img/image25.png",
+            "img/image26.png", "img/image27.png", "img/image28.png", "img/image29.png", "img/image30.png",
+            "img/image31.png", "img/image32.png", "img/image33.png", "img/image34.png", "img/image35.png"
+        ];
+
+        let currentImageIndex = 0; // Index de l'image actuelle dans la galerie
+
+        // Fonction pour ajouter les images à la galerie
+        const gallery = document.getElementById('gallery');
+        images.forEach((imageSrc, index) => {
+            const div = document.createElement('div');
+            div.classList.add('gallery-item');
+
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = "Image de la galerie";
+
+            // Ajouter un événement pour ouvrir l'image dans la modale
+            img.addEventListener('click', () => {
+                currentImageIndex = index; // Met à jour l'index de l'image courante
+                document.getElementById('modal').style.display = 'flex';
+                document.getElementById('modal-image').src = imageSrc;
+            });
+
+            div.appendChild(img);
+            gallery.appendChild(div);
+        });
+
+        // Fermer la modale lorsqu'on clique sur le bouton de fermeture
+        document.getElementById('close').addEventListener('click', () => {
+            document.getElementById('modal').style.display = 'none';
+        });
+
+        // Fonction pour changer l'image à gauche
+        document.getElementById('prev').addEventListener('click', () => {
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+            } else {
+                currentImageIndex = images.length - 1; // Revenir à la dernière image
+            }
+            document.getElementById('modal-image').src = images[currentImageIndex];
+        });
+
+        // Fonction pour changer l'image à droite
+        document.getElementById('next').addEventListener('click', () => {
+            if (currentImageIndex < images.length - 1) {
+                currentImageIndex++;
+            } else {
+                currentImageIndex = 0; // Revenir à la première image
+            }
+            document.getElementById('modal-image').src = images[currentImageIndex];
+        });
+
+        // Script pour afficher/cacher le bouton de retour en haut
+        const scrollTopBtn = document.querySelector(".scroll-top");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
+        });
+
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
 </body>
 
 </html>

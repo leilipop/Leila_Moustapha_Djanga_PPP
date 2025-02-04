@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
     margin: 0;
     background: #000;
@@ -6,12 +5,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Galerie */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
     padding: 10px;
     margin: 20px;
+    justify-content: center;
 }
 
 .gallery-item {
@@ -20,8 +21,9 @@ body {
 }
 
 .gallery-item img {
-    width: 240px;
-    height: 380px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/5;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -30,106 +32,86 @@ body {
     transform: scale(1.1);
 }
 
-.overlay {
-    position: absolute;
+/* Modale */
+.modal {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
     justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    align-items: center;
 }
 
-.gallery-item:hover .overlay {
-    opacity: 1;
+#modal-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
 }
 
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+/* Bouton Scroll Top */
 .scroll-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     font-size: 20px;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-top.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 .scroll-top:hover {
-    background: rgba(255, 255, 255, 0.8);
-}
-=======
-body {
-    margin: 0;
-    background: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
-    padding: 10px;
-    margin: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
+    background: white;
+    transform: scale(1.1);
 }
 
 .gallery-item img {
-    width: 240px;
-    height: 380px;
+    cursor: pointer;
+    /* Change le curseur en main lors du survol de l'image */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/5;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .overlay {
-    opacity: 1;
-}
-
-.scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.5);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.scroll-top:hover {
-    background: rgba(255, 255, 255, 0.8);
-}
->>>>>>> 5f6465a9ab5758adc65bb8aeca15222df7053fb1
